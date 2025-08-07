@@ -104,15 +104,15 @@ export default function Footer() {
     </div>
     <div className="flex space-x-4 items-center justify-center mb-4">
       <a href="#">
-  <img className="w-20 h-20" src="/apps-banner-qr.png" alt="QR Code" />
+  <img className="w-20 h-20" src="./apps-banner-qr.png" alt="QR Code" />
   </a>
 
     <div className="flex flex-col space-y-0.5"> {/* reduced vertical spacing */}
       <a href="#">
-        <img className="w-30 h-auto" src="/applestore.png" alt="App Store" />
+        <img className="w-30 h-auto" src="./applestore.png" alt="App Store" />
       </a>
       <a href="#">
-        <img className="w-30 h-auto" src="/googlestore1.png" alt="Google Play" />
+        <img className="w-30 h-auto" src="./googlestore1.png" alt="Google Play" />
       </a>
     </div>
   </div>

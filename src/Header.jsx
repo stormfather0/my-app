@@ -96,14 +96,14 @@ export default function Header() {
   <Link to="/" className="flex-shrink-0">
   {/* Image for small screens */}
   <img
-    src="/logo-small.svg"
+    src="./logo-small.svg"
     alt="Logo"
     className="h-8 max-h-14  object-contain block md:hidden"
   />
 
   {/* Image for md and up */}
   <img
-    src="/logo-20-years.svg"
+    src="./logo-20-years.svg"
     alt="Logo"
     className="h-8 max-h-14 object-contain hidden md:block"
   />
@@ -118,7 +118,7 @@ export default function Header() {
         aria-haspopup="true"
         aria-expanded={showCategoriesPopup}
       >
-        <img className="w-5 h-5" src="/menu.svg" alt="Categories" />
+        <img className="w-5 h-5" src="./menu.svg" alt="Categories" />
         <span className="text-sm font-medium">Categories</span>
       </button>
 
@@ -193,7 +193,7 @@ export default function Header() {
   <Link to="/Account">
     <img
       className="w-7 h-7 flex-shrink-0"
-      src="account.svg"
+      src="./account.svg"
       alt="Profile"
     />
   </Link>
