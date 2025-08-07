@@ -13,7 +13,7 @@ const categories = [
   { label: "Groceries", icon: "https://img.icons8.com/ios-filled/50/shopping-basket.png" },
   { label: "Baby Products", icon: "https://img.icons8.com/ios-filled/50/baby.png" },
   { label: "Special Sale", icon: "https://icons.iconarchive.com/icons/icons8/ios7/512/Ecommerce-Sale-icon.png" },
-  { label: "Chat With ROZETKA", icon: "/chat.svg" },
+  { label: "Chat With Us", icon: "/chat.svg" },
   { label: "Our Stores", icon: "/stores.svg" },
   { label: "Info", icon: "/info.svg" },
   
@@ -63,12 +63,12 @@ const Sidebar = ({
  key={index}
  className={`flex items-center pb-2 group rounded
    ${item.label === "Special Sale" ? "bg-yellow-200 pl-4 py-1 font-bold" : ""}
-   ${item.label === "Chat With ROZETKA" ? " text-green-700 py-1 pl-10 font-semibold" : "pl-10"}
+   ${item.label === "Chat With Us" ? " text-green-700 py-1 pl-10 font-semibold" : "pl-10"}
  `}
 >
 <img
   className={`w-6 h-6 transition duration-300
-    ${item.label === "Chat With ROZETKA"
+    ${item.label === "Chat With Us"
       ? "" 
       : "filter grayscale brightness-0 opacity-70 group-hover:grayscale-0 group-hover:brightness-100 group-hover:opacity-100"
     }`
@@ -117,7 +117,7 @@ Log in
 
 <div className="flex flex-col items-center justify-center gap-2 bg-gray-100 rounded p-3 my-4">
   <p className="text-md text-gray-500 text-center ">
-  Subscribe and be the first to receive information about the start of sales, discounts, promotions, bonuses and welcome surprises at Rozetka!
+  Subscribe and be the first to receive information about the start of sales, discounts, promotions, bonuses and welcome surprises at <Website className="com"></Website>!
   </p>
   <button className="bg-[rgb(34,100,127)] hover:bg-[rgb(34,100,147)] text-white font-bold py-2 px-5 rounded transition-colors duration-300 w-60">
   Subscribe
@@ -258,7 +258,7 @@ Log in
           <div className="pl-10 border-b border-gray-200 pb-12">
 
 
-            <h3 className="text-white font-semibold mb-4">About Rozetka</h3>
+            <h3 className="text-white font-semibold mb-4">About Website</h3>
             <ul className="space-y-4 text-sm mb-6">
               <li><a href="#" className="hover:text-green-500 transition">About Us</a></li>
               <li><a href="#" className="hover:text-green-500 transition">Careers</a></li>
