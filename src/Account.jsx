@@ -139,8 +139,9 @@ export default function Account() {
           })}
         </div>
       )}
+      <div className="bg-red-500 md:bg-green-500 lg:bg-blue-500 h-32 w-full"></div>
     </div>
+    
   );
 }
 
-<div className="bg-red-500 md:bg-green-500 lg:bg-blue-500 h-32 w-full"></div>
