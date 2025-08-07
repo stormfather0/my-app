@@ -8,4 +8,9 @@ export default defineConfig({
   plugins: [react(),
     // tailwindcss(),
   ],
+  build: {
+    outDir: 'dist',
+    entry: '/src/main.jsx',
+    ssr: false,
+  },
 })
