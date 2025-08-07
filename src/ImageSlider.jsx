@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
-  "./slider/1.webp",
-  "/slider/2.webp",
-  "/slider/3.webp",
+  "1.webp",
+  "/2.webp",
+  "./3.webp",
   "/slider/4.webp",
   "slider/5.webp",
   "./slider/6.webp",
