@@ -164,7 +164,7 @@ export default function Header() {
   type="submit"
   className="bg-green-600 hover:bg-green-700 px-4 py-2 text-white"
 >
-  <img src="/search.svg" alt="Search" className="w-6 h-6" />
+  <img src="./search.svg" alt="Search" className="w-6 h-6" />
 </button>
             </form>
 
