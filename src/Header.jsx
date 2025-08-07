@@ -193,14 +193,14 @@ export default function Header() {
   <Link to="/Account">
     <img
       className="w-7 h-7 flex-shrink-0"
-      src="/account.svg"
+      src="account.svg"
       alt="Profile"
     />
   </Link>
   <Link to="/checkout" className="relative">
     <img
       className="w-7 h-7 flex-shrink-0"
-      src="/shopping-cart.svg"
+      src="./shopping-cart.svg"
       alt="Cart"
     />
     {totalItems > 0 && (
