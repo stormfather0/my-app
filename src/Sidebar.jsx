@@ -117,7 +117,7 @@ Log in
 
 <div className="flex flex-col items-center justify-center gap-2 bg-gray-100 rounded p-3 my-4">
   <p className="text-md text-gray-500 text-center ">
-  Subscribe and be the first to receive information about the start of sales, discounts, promotions, bonuses and welcome surprises at <Website className="com"></Website>!
+  Subscribe and be the first to receive information about the start of sales, discounts, promotions, bonuses and welcome surprises at Website.com
   </p>
   <button className="bg-[rgb(34,100,127)] hover:bg-[rgb(34,100,147)] text-white font-bold py-2 px-5 rounded transition-colors duration-300 w-60">
   Subscribe
