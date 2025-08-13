@@ -271,7 +271,7 @@ export default function Products() {
                           className="p-1 rounded hover:bg-green-100 hover:bg-opacity-60 transition"
                         >
                           <img
-                            src="/shopping-cart.svg"
+                            src="./shopping-cart.svg"
                             alt="Add to cart"
                             className="w-6 h-6 cursor-pointer"
                           />
