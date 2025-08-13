@@ -474,7 +474,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
   <div className="flex flex-col gap-3 pl-8">
 
     <label className="flex items-center gap-5 text-sm text-gray-700">
-    <img className="w-12 h-12 object-contain" src="/additional-services-1.png.webp" alt="" />
+    <img className="w-12 h-12 object-contain" src="/my-app/additional-services-1.png.webp" alt="" />
       <input type="checkbox" className="accent-green-600 w-4 h-4" />
       Additional guarantee for 1 year
     </label>
@@ -640,7 +640,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
         <h2 className="text-md font-semibold rounded-lg">
           Customers score: {product.rating} / 5
         </h2>
-        <img className="w-4 h-4" src="/star.svg" alt="star" />
+        <img className="w-4 h-4" src="/my-app/star.svg" alt="star" />
       </div>
 
       <p className="text-gray-600 text-sm mb-2">
@@ -659,7 +659,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
                 <li key={star} className="flex items-center gap-3 w-full">
                   <div className="flex items-center gap-1 min-w-[30px]">
                     <span className="font-bold">{star}</span>
-                    <img src="/star.svg" alt={`${star} star`} className="w-4 h-4" />
+                    <img src="/my-app/star.svg" alt={`${star} star`} className="w-4 h-4" />
                   </div>
 
                   <div className="w-full h-2 bg-gray-200 rounded">
