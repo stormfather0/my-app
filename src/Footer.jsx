@@ -166,8 +166,8 @@ export default function Footer() {
         <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-xs">
           <div className="flex justify-center mb-2">
           <p>Powered:</p>
-          <img src="/visa-logo.svg" alt="visa" />
-          <img src="/mastercard-logo.svg" alt="mastercard" />
+          <img src="/my-app/visa-logo.svg" alt="visa" />
+          <img src="/my-app/mastercard-logo.svg" alt="mastercard" />
           </div>
           &copy; {new Date().getFullYear()} Website.com. All rights reserved.
         </div>
