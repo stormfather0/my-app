@@ -4,8 +4,8 @@ import Sidebar from "./Sidebar";
 import { useCart } from "./CartContext"; 
 
 export default function Header() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // hamburger sidebar
-  const [showCategoriesPopup, setShowCategoriesPopup] = useState(false); // categories popup
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
+  const [showCategoriesPopup, setShowCategoriesPopup] = useState(false); 
   const [searchTerm, setSearchTerm] = useState("");
   const [allProducts, setAllProducts] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
@@ -48,15 +48,15 @@ export default function Header() {
   }, [searchTerm, allProducts]);
 
   // Click outside handler to close suggestions and categories popup
+  const sidebarRef = useRef(null);
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
-        dropdownRef.current && !dropdownRef.current.contains(e.target) &&
-        categoriesButtonRef.current && !categoriesButtonRef.current.contains(e.target) &&
-        categoriesPopupRef.current && !categoriesPopupRef.current.contains(e.target)
+        sidebarRef.current && !sidebarRef.current.contains(e.target) &&
+        !e.target.closest("button[aria-label='Toggle menu']") // hamburger
       ) {
-        setShowSuggestions(false);
-        setShowCategoriesPopup(false);
+        setIsSidebarOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);

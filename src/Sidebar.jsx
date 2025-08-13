@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from 'react';
-import FooterSubscribe from "./Footer/FooterSubscribe";
+// import FooterSubscribe from "./Footer/FooterSubscribe";
 
 const categories = [
   { label: "Electronics", icon: "https://img.icons8.com/ios-filled/50/laptop.png" },
