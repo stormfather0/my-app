@@ -109,10 +109,10 @@ export default function Footer() {
 
     <div className="flex flex-col space-y-0.5"> {/* reduced vertical spacing */}
       <a href="#">
-        <img className="w-30 h-auto" src="./applestore.png" alt="App Store" />
+        <img className="w-30 h-auto" src="/my-app/applestore.png" alt="App Store" />
       </a>
       <a href="#">
-        <img className="w-30 h-auto" src="./googlestore1.png" alt="Google Play" />
+        <img className="w-30 h-auto" src="my-app/googlestore1.png" alt="Google Play" />
       </a>
     </div>
   </div>
