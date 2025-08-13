@@ -742,7 +742,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
                   <p className="text-gray-700">
                     <strong>{review.reviewerName || "Anonymous"}:</strong>
                   </p>
-                  <img src="/cart-reviews.svg" alt="review icon" className="w-6 h-6" />
+                  <img src="/my-app/cart-reviews.svg" alt="review icon" className="w-6 h-6" />
                   <p className="text-gray-500 text-sm">{formatDate(review.date)}</p>
                 </div>
                 <p className="text-yellow-500 mb-5">
@@ -752,13 +752,13 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
 
                 <div className="flex justify-between">
                   <div className="flex items-center gap-2 mt-2">
-                    <img className="w-5 h-5 -scale-x-100" src="/reply-arrow.svg" alt="reply" />
+                    <img className="w-5 h-5 -scale-x-100" src="/my-app/reply-arrow.svg" alt="reply" />
                     <p className="text-gray-500 text-sm cursor-pointer">Reply</p>
                   </div>
                   <div className="flex items-center gap-1">
                     <img
                       className="w-5 h-5 cursor-pointer"
-                      src="/like.svg"
+                      src="/my-app/like.svg"
                       alt="Upvote"
                       onClick={() =>
                         setVotes(prev => ({
@@ -774,7 +774,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
               
                     <img
                       className="w-5 h-5 rotate-180 cursor-pointer"
-                      src="/like.svg"
+                      src="/my-app/like.svg"
                       alt="Downvote"
                       onClick={() =>
                         setVotes(prev => ({
@@ -798,7 +798,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
       ) : (
         <div className="flex flex-col gap-2 border border-gray-300 rounded-2xl pb-2 pt-2 px-4"> 
         <div className="flex items-center gap-4">
-          <div> <img src="/reviews-question.svg" alt="No questions" />  
+          <div> <img src="/my-app/reviews-question.svg" alt="No questions" />  
           </div>
        <div className="flex flex-col items-start"> 
           <p className="text-gray-500 py-1">No questions yet.</p>
