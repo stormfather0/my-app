@@ -13,9 +13,9 @@ const categories = [
   { label: "Groceries", icon: "https://img.icons8.com/ios-filled/50/shopping-basket.png" },
   { label: "Baby Products", icon: "https://img.icons8.com/ios-filled/50/baby.png" },
   { label: "Special Sale", icon: "https://icons.iconarchive.com/icons/icons8/ios7/512/Ecommerce-Sale-icon.png" },
-  { label: "Chat With Us", icon: "/chat.svg" },
-  { label: "Our Stores", icon: "/stores.svg" },
-  { label: "Info", icon: "/info.svg" },
+  { label: "Chat With Us", icon: "/my-app/chat.svg" },
+  { label: "Our Stores", icon: "/my-app/stores.svg" },
+  { label: "Info", icon: "/my-app/info.svg" },
   
 
   
@@ -89,7 +89,7 @@ const Sidebar = ({
         </ul>
         
         <div className="flex items-center pl-9  gap-1 ">
-          <img src="/location.svg" alt="" />
+          <img src="/my-app/location.svg" alt="" />
       <p className="text-sm text-gray-800">
         {location ? `${location}` : "Detecting location..."}
       </p>
@@ -129,10 +129,10 @@ Log in
           <p className="text-md text-gray-700 pt-4 pl-10">Download our apps :</p>
           <div className="flex items-center justify-center   gap-2 mb-2 pl-2"> {/* reduced vertical spacing */}
       <a href="#">
-        <img className="w-28 h-15" src="/applestore.png" alt="App Store" />
+        <img className="w-28 h-15" src="//my-app/applestore.png" alt="App Store" />
       </a>
       <a href="#">
-        <img className="w-25 h-auto" src="/googlestore1.png" alt="Google Play" />
+        <img className="w-25 h-auto" src="/my-app/googlestore1.png" alt="Google Play" />
       </a>
     </div>
           </div>
