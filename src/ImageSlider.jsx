@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
-  "1.webp",
-  "/2.webp",
-  "./3.webp",
-  "/slider/4.webp",
-  "slider/5.webp",
-  "./slidesr/6.webp",
+  "/my-app/slider/1.webp",
+  "/my-app/slider/2.webp",
+  "/my-app/slider/3.webp",
+  "/my-app/slider/4.webp",
+  "/my-app/slider/5.webp",
+  "/my-app/slidesr/6.webp",
 ];
 
 export default function ImageSlider() {

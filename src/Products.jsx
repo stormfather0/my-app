@@ -154,7 +154,7 @@ export default function Products() {
               <div className="w-full rounded p-2 h-18 shadow-inner overflow-hidden border border-gray-200 relative mb-4">
                 <div className="flex items-center gap-4 overflow-x-auto pr-40">
                   <div className="flex items-center h-14 min-w-max pl-4">
-                    <img className="w-6 h-6" src="/shopping-cart.svg" alt="Cart" />
+                    <img className="w-6 h-6" src="/my-app/shopping-cart.svg" alt="Cart" />
                     <p className="text-sm ml-2 whitespace-nowrap flex items-center leading-tight">
                       You have <strong className="font-semibold ml-1 mr-1">{cartItems.length}</strong> items in your cart
                     </p>
