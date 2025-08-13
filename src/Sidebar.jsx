@@ -309,18 +309,25 @@ Log in
   // Dynamic sidebar for header: slide in/out from left
   return (
     <div
-      className={`fixed top-0 left-0 h-full w-64 bg-white border-r border-gray-200 shadow-lg z-50 transform transition-transform duration-300 ease-in-out
-        ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
-    >
-      <div className="flex justify-end p-4 border-b border-gray-300">
-        <button
-          onClick={close} 
-          aria-label="Close sidebar"
-          className="text-gray-700 hover:text-green-600"
-        >
-          ✕
-        </button>
+    className={`fixed top-0 left-0 h-full w-64 bg-white border-r shadow-lg z-50 transform transition-transform duration-300 ease-in-out
+      ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+  >
+    <div className="flex justify-between items-center p-4 border-b bg-gray-900">
+      {/* Logo on the left */}
+      <div className="flex justify-start">
+        <img src="/my-app/logo-small.svg" alt="Logo" className="h-8 w-8" />
       </div>
+  
+      {/* Close button on the right */}
+      <button
+        onClick={close}
+        aria-label="Close sidebar"
+        className="text-gray-100 hover:text-green-600 "
+      >
+        ✕
+      </button>
+    </div>
+  
 
 
 {/* Sidebar content */}
@@ -328,7 +335,7 @@ Log in
   <CategoriesButton
   showCategoriesPopup={showCategoriesPopup}
   setShowCategoriesPopup={setShowCategoriesPopup}
-  className="flex justify-center items-center mt-5 text-white bg-green-700 w-60 "
+  className="flex justify-center items-center mt-5 ml-1 text-white bg-green-700 w-60 "
 />
   </div>
 
