@@ -129,7 +129,7 @@ Log in
           <p className="text-md text-gray-700 pt-4 pl-10">Download our apps :</p>
           <div className="flex items-center justify-center   gap-2 mb-2 pl-2"> {/* reduced vertical spacing */}
       <a href="#">
-        <img className="w-28 h-15" src="//my-app/applestore.png" alt="App Store" />
+        <img className="w-28 h-15" src="/my-app/applestore.png" alt="App Store" />
       </a>
       <a href="#">
         <img className="w-25 h-auto" src="/my-app/googlestore1.png" alt="Google Play" />
