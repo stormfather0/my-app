@@ -195,7 +195,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
     
     <div className="bg-gray-100 max-w-8xl mx-auto rounded-xl gap-4 px-10 py-5">
   <div className="p-1 h-7 rounded-lg mb-2 flex items-center gap-x-1">
-  <img className="w-4 h-4" src="/home.png" alt="Home" />
+  <img className="w-4 h-4" src="/my-app/home.png" alt="Home" />
   <span >/</span>
   <p className="text-sm pl-1 tracking-wider">{product.category}</p>
 </div>
@@ -291,7 +291,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
 
   <div className="border-1 rounded border-gray-200 p-2 gap-4 flex justify-between items-center ">
     <div className="flex items-center gap-2">
-  <img className="w-13 h-13" src="/sale.png" alt="" />
+  <img className="w-13 h-13" src="/my-app/sale.png" alt="" />
   
   <div >
 
@@ -301,7 +301,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
     </div>
   
     <a href="#">
-    <img className="w-4 h-4" src="/right-arrow.png" alt="" />
+    <img className="w-4 h-4" src="/my-app/right-arrow.png" alt="" />
     </a>
     </div>
   </div>
@@ -311,7 +311,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
 
           <div className="flex px-4 py-0 rounded-t-lg bg-white gap-3 items-center border-b border-gray-200">
             <p className="text-base text-gray-500">Seller:</p>
-            <img src="/public/seller.svg" alt="" className="w-35 h-10" />
+            <img src="/my-app/seller.svg" alt="" className="w-35 h-10" />
           </div>
 
 
@@ -400,7 +400,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
 </div>
 
           <div className="flex items-start p-4 rounded-lg bg-white mb-1 mt-2 gap-2">
-            <img src="/wallet.svg" alt="" className="w-7 h-7" />
+            <img src="/my-app/wallet.svg" alt="" className="w-7 h-7" />
             <p className="text-gray-600 text-sm">
               Payment. By card online, Payment upon receipt of goods, Payment by
               card in the branch, Apple Pay, Google Pay, Cashless for legal
@@ -409,7 +409,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
           </div>
 
             <div className="flex items-center p-4 rounded-lg bg-white mb-1 mt-1 gap-2">
-              <img src="/security.svg" alt="" className="w-7 h-7" />
+              <img src="/my-app/security.svg" alt="" className="w-7 h-7" />
 
               <p className="text-gray-600 text-sm">
                 Warranry information: <strong> {product.warrantyInformation}</strong>
@@ -424,7 +424,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
           <div className="p-4 rounded-lg bg-white mb-2 mt-2">
   {/* Header */}
   <div className="flex items-center gap-2 mb-4">
-    <img src="/delivery.svg" alt="Delivery Icon" className="w-6 h-6" />
+    <img src="/my-app/delivery.svg" alt="Delivery Icon" className="w-6 h-6" />
     <p className="text-gray-700 text-sm font-medium">Delivery Options</p>
   </div>
 
@@ -433,10 +433,10 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
     
     {/* Shared row style */}
     {[
-      { img: '/ups-1.png', label: 'UPS', price: 'Free' },
-      { img: '/courier.png', label: 'Courier', price: '$10' },
-      { img: '/dhl.svg.png', label: 'DHL', price: '$8' },
-      { img: '/fedex.png', label: 'FedEx', price: '$9' },
+      { img: '/my-app/ups-1.png', label: 'UPS', price: 'Free' },
+      { img: '/my-app/courier.png', label: 'Courier', price: '$10' },
+      { img: '/my-app/dhl.svg.png', label: 'DHL', price: '$8' },
+      { img: '/my-app/fedex.png', label: 'FedEx', price: '$9' },
     ].map(({ img, label, price }, index) => (
       <div
         key={index}
@@ -467,7 +467,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
 
 <div className="p-4 rounded-lg bg-white  mt-2">
   <div className="flex gap-2 items-center mb-4">
-    <img className="w-6 h-6" src="/service.svg" alt="" />
+    <img className="w-6 h-6" src="/my-app/service.svg" alt="" />
     <p className="text-gray-700 text-sm font-medium">Additional Services</p>
   </div>
 
@@ -480,14 +480,14 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
     </label>
 
     <label className="flex items-center gap-5 text-sm text-gray-700">
-    <img className="w-12 h-12 object-contain" src="/additional-services-2.png.webp" alt="" />
+    <img className="w-12 h-12 object-contain" src="/my-app/additional-services-2.png.webp" alt="" />
 
       <input type="checkbox" className="accent-green-600 w-4 h-4" />
      Service for unexpected breakdowns
     </label>
 
     <label className="flex items-center gap-5 text-sm text-gray-700">
-    <img className="w-12 h-12 object-contain" src="/additional-services-3.png.webp" alt="" />
+    <img className="w-12 h-12 object-contain" src="/my-app/additional-services-3.png.webp" alt="" />
 
       <input type="checkbox" className="accent-green-600 w-4 h-4" />
       NEW! Full guarantee for 2 years
@@ -503,7 +503,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
        <p className="text-gray-600 text-sm">
        Similar items
        </p>
-       <img className="w-4 h-4" src="/right-arrow.png" alt="" />
+       <img className="w-4 h-4" src="/my-app/right-arrow.png" alt="" />
      </div>
      </a>
 
