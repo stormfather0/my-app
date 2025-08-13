@@ -1,6 +1,9 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 // import FooterSubscribe from "./Footer/FooterSubscribe";
+import CategoriesButton from "./CategoriesButton";
+
+
 
 const categories = [
   { label: "Electronics", icon: "https://img.icons8.com/ios-filled/50/laptop.png" },
@@ -34,13 +37,16 @@ const categories = [
 const Sidebar = ({
     isOpen = false,
     setIsOpen = () => {},
+    close = () => {},
     isStatic = false,
     textColor = "text-black",
     height = "auto",
+    
   }) => {
 
 
     const [location, setLocation] = useState("");
+const [showCategoriesPopup, setShowCategoriesPopup] = useState(false);
 
     useEffect(() => {
       fetch("https://ipinfo.io/json?token=843a2ab4d34d13")
@@ -308,28 +314,26 @@ Log in
     >
       <div className="flex justify-end p-4 border-b border-gray-300">
         <button
-          onClick={() => setIsOpen(false)}
+          onClick={close} 
           aria-label="Close sidebar"
           className="text-gray-700 hover:text-green-600"
         >
           ✕
         </button>
       </div>
-      <ul className="flex flex-col p-4">
-        {categories.map((item, index) => (
-          <li key={index} className="flex items-center mb-4 group cursor-pointer">
-            <img
-              className="w-6 h-6 filter grayscale brightness-0 opacity-70 group-hover:grayscale-0 group-hover:brightness-100 group-hover:opacity-100 transition duration-300"
-              src={item.icon}
-              alt={item.label}
-            />
-            <a href="#" className="block pl-2 pt-1 rounded hover:text-green-600">
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+
+
+{/* Sidebar content */}
+  {/* Categories Button */}
+  <CategoriesButton
+  showCategoriesPopup={showCategoriesPopup}
+  setShowCategoriesPopup={setShowCategoriesPopup}
+  className="flex justify-center items-center mt-5 text-white bg-green-700 w-60 "
+/>
+  </div>
+
+
+ 
   );
 };
 
