@@ -101,70 +101,73 @@ export default function Header() {
               setShowCategoriesPopup={setShowCategoriesPopup}
             />
           </div>
+{/* Search */}
+<div className="relative w-full max-w-2xl mx-2 sm:mx-4" ref={dropdownRef}>
+  <form
+    onSubmit={handleSearch}
+    className="flex bg-white rounded-md shadow-sm overflow-hidden"
+  >
+    <input
+      type="search"
+      placeholder="Search products..."
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      className="flex-grow px-3 py-2 text-gray-900 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-green-500"
+    />
 
-          {/* Search */}
-          <div className="relative w-full max-w-2xl mx-4" ref={dropdownRef}>
-            <form
-              onSubmit={handleSearch}
-              className="flex bg-white rounded-md shadow-sm overflow-hidden"
-            >
-              <input
-                type="search"
-                placeholder="Search products..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="flex-grow px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-              <button
-                type="submit"
-                className="bg-green-600 hover:bg-green-700 px-4 py-2 text-white"
-              >
-                <img src="./search.svg" alt="Search" className="w-6 h-6" />
-              </button>
-            </form>
+    {/* Search button - hidden on small screens */}
+    <button
+      type="submit"
+      className="hidden sm:flex bg-green-600 hover:bg-green-700 px-4 py-2 text-white items-center justify-center"
+    >
+      <img src="./search.svg" alt="Search" className="w-6 h-6" />
+    </button>
+  </form>
 
-            {showSuggestions && suggestions.length > 0 && (
-              <ul className="absolute z-50 bg-white text-black shadow-md rounded-md mt-1 w-full max-h-60 overflow-y-auto border">
-                {suggestions.map((product) => (
-                  <li
-                    key={product.id}
-                    className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleSuggestionClick(product)}
-                  >
-                    <img
-                      src={product.thumbnail}
-                      alt={product.title}
-                      className="w-10 h-10 object-cover rounded"
-                    />
-                    <span className="truncate">{product.title}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+  {showSuggestions && suggestions.length > 0 && (
+    <ul className="absolute z-50 bg-white text-black shadow-md rounded-md mt-1 w-full max-h-60 overflow-y-auto border">
+      {suggestions.map((product) => (
+        <li
+          key={product.id}
+          className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer"
+          onClick={() => handleSuggestionClick(product)}
+        >
+          <img
+            src={product.thumbnail}
+            alt={product.title}
+            className="w-10 h-10 object-cover rounded"
+          />
+          <span className="truncate">{product.title}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+</div>
 
-          {/* Profile & Cart */}
-          <div className="flex items-center gap-6 flex-shrink-0">
-            <Link to="/Account">
-              <img
-                className="w-7 h-7"
-                src="./account.svg"
-                alt="Profile"
-              />
-            </Link>
-            <Link to="/checkout" className="relative">
-              <img
-                className="w-7 h-7"
-                src="./shopping-cart.svg"
-                alt="Cart"
-              />
-              {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
-                  {totalItems}
-                </span>
-              )}
-            </Link>
-          </div>
+{/* Profile & Cart */}
+<div className="flex items-center gap-6 flex-shrink-0">
+  {/* Account icon - hidden on small screens */}
+  <Link to="/Account" className="hidden sm:flex">
+    <img
+      className="w-7 h-7"
+      src="./account.svg"
+      alt="Profile"
+    />
+  </Link>
+
+  <Link to="/checkout" className="relative">
+    <img
+      className="w-7 h-7"
+      src="./shopping-cart.svg"
+      alt="Cart"
+    />
+    {totalItems > 0 && (
+      <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
+        {totalItems}
+      </span>
+    )}
+  </Link>
+</div>
         </div>
       </header>
 
