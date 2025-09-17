@@ -67,7 +67,7 @@ const scrollToReviews = () => scrollToRefWithOffset(reviewsRef);
 
 
 
-///test
+
 
 
   //Get tomorrow's date for delivery 
@@ -193,7 +193,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
 
   return (
     
-    <div className="bg-gray-100 max-w-8xl mx-auto rounded-xl gap-4 px-10 py-5">
+    <div className="bg-gray-100 max-w-8xl mx-auto rounded-xl gap-4 px-2 sm:px-10 py-5">
   <div className="p-1 h-7 rounded-lg mb-2 flex items-center gap-x-1">
   <img className="w-4 h-4" src="/my-app/home.png" alt="Home" />
   <span >/</span>
