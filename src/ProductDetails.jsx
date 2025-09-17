@@ -535,7 +535,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
 
 
 
-{/* You can also be interested in: */}
+{/* Bottom bar menu*/}
 
 {showBottomBar && (
   <div className="fixed flex justify-between items-center gap-4  px-5 bottom-0 left-0 w-full bg-white text-black text-center z-50 shadow-lg">
@@ -593,7 +593,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
 )}
 
 
-
+{/* You can also be interested in: */}
 {similarProducts.length > 0 && (
   <div ref={interestedSectionRef} id="interested" className="p-4 rounded-lg bg-white mb-5 mt-7 pb-10">
   
@@ -602,6 +602,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
     </h2>
     <div className="flex overflow-x-auto gap-4">
       {similarProducts.slice(0, 10).map((item) => (
+        <Link key={item.id} to={`/product/${item.id}`}>
         <div
           key={item.id}
           className="min-w-[200px] flex-shrink-0 border rounded-lg shadow-sm p-3 bg-white hover:shadow-md transition"
@@ -616,6 +617,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
           </p>
           <p className="text-green-600 font-bold">${item.price}</p>
         </div>
+        </Link>
       ))}
     </div>
   </div>
