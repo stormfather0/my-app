@@ -264,12 +264,12 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
 
   </p>
   <div className="flex items-center gap-2 ">
-            <p>
+            <div>
               <StarRating rating={product.rating} />
-            </p>
-            <p onClick={scrollToReviews}  className="text-sky-700 text-base cursor-pointer">
+            </div>
+            <div onClick={scrollToReviews}  className="text-sky-700 text-base cursor-pointer">
               {product.totalReviews ?? product.stock} reviews
-            </p>
+            </div>
           </div>
           </div>
   
@@ -277,9 +277,9 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
 
   {/* Right: Leave a review + barcode */}
   <div className="flex flex-col items-start justify-end p-2 pr-4">
-    <a href="#">
+  
     <p  onClick={scrollToReviews} className="text-sm text-blue-400 ">Leave a review</p>
-    </a>
+
     <p className="text-sm text-gray-500 opacity-75">barcode: {product.meta.barcode}</p>
   </div>
 
@@ -300,9 +300,9 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
     </div>
     </div>
   
-    <a href="#">
+   
     <img className="w-4 h-4" src="/my-app/right-arrow.png" alt="" />
-    </a>
+
     </div>
   </div>
   </Link>
@@ -385,7 +385,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
       onClick={() => addToCart(product)}
     >
       <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
-        <path d="..." />
+        
       </svg>
       <span className="text-sm">Add to Cart</span>
     </button>
@@ -747,9 +747,9 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
                   <img src="/my-app/cart-reviews.svg" alt="review icon" className="w-6 h-6" />
                   <p className="text-gray-500 text-sm">{formatDate(review.date)}</p>
                 </div>
-                <p className="text-yellow-500 mb-5">
+                <div className="text-yellow-500 mb-5">
                   <StarRating rating={review.rating} />
-                </p>
+                </div>
                 <p>{review.comment}</p>
 
                 <div className="flex justify-between">
