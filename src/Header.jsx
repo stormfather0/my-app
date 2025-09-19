@@ -21,6 +21,11 @@ export default function Header() {
   const { cartItems } = useCart();
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
+  // Close suggestions on route change
+useEffect(() => {
+  setShowSuggestions(false);
+}, [location.pathname]);
+
   // Fetch products
   useEffect(() => {
     fetch("https://dummyjson.com/products?limit=100")
