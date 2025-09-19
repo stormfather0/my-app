@@ -102,17 +102,17 @@ export default function Header() {
             />
           </div>
 {/* Search */}
-<div className="relative w-full max-w-2xl mx-2 sm:mx-4" ref={dropdownRef}>
+<div className="relative flex-1 min-w-0" ref={dropdownRef}>
   <form
     onSubmit={handleSearch}
-    className="flex bg-white rounded-md shadow-sm overflow-hidden"
+    className="flex bg-white rounded-md shadow-sm overflow-hidden w-full"
   >
     <input
       type="search"
       placeholder="Search products..."
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
-      className="flex-grow px-3 py-2 text-gray-900 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-green-500"
+      className="flex-grow min-w-0 px-3 py-2 text-gray-900 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-green-500"
     />
 
     {/* Search button - hidden on small screens */}
@@ -125,7 +125,7 @@ export default function Header() {
   </form>
 
   {showSuggestions && suggestions.length > 0 && (
-    <ul className="absolute z-50 bg-white text-black shadow-md rounded-md mt-1 w-full max-h-60 overflow-y-auto border">
+    <ul className="absolute z-50 bg-white text-black shadow-md rounded-md mt-1 w-full max-w-full overflow-y-auto border">
       {suggestions.map((product) => (
         <li
           key={product.id}
@@ -143,7 +143,6 @@ export default function Header() {
     </ul>
   )}
 </div>
-
 {/* Profile & Cart */}
 <div className="flex items-center gap-6 flex-shrink-0">
   {/* Account icon - hidden on small screens */}
