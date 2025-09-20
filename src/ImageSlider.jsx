@@ -10,6 +10,7 @@ const images = [
   "/my-app/slides/6.webp",
 ];
 
+
 export default function ImageSlider() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1); // 1 = forward, -1 = backward
