@@ -7,7 +7,7 @@ const images = [
   "/my-app/slider/3.webp",
   "/my-app/slider/4.webp",
   "/my-app/slider/5.webp",
-  "/my-app/slides/6.webp",
+  "/my-app/slider/6.webp",
 ];
 
 
@@ -101,15 +101,16 @@ export default function ImageSlider() {
 
       {/* Left arrow */}
       <button
-        onClick={prev}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 
-                   w-10 h-10 flex items-center justify-center 
-                   bg-gray-500 bg-opacity-40 hover:bg-opacity-60 
-                   text-white rounded-full shadow cursor-pointer"
-        aria-label="Previous slide"
-      >
-        ◀
-      </button>
+  onClick={prev}
+  className="absolute top-1/2 left-4 transform -translate-y-1/2 
+             w-10 h-10 flex items-center justify-center 
+             bg-gray-500 bg-opacity-40 hover:bg-opacity-60 
+             text-white rounded-full shadow cursor-pointer 
+             hidden sm:flex"
+  aria-label="Previous slide"
+>
+  ◀
+</button>
 
       {/* Right arrow */}
       <button
@@ -117,14 +118,15 @@ export default function ImageSlider() {
         className="absolute top-1/2 right-4 transform -translate-y-1/2 
                    w-10 h-10 flex items-center justify-center 
                    bg-gray-500 bg-opacity-40 hover:bg-opacity-60 
-                   text-white rounded-full shadow cursor-pointer"
+                   text-white rounded-full shadow cursor-pointer
+                    hidden sm:flex"
         aria-label="Next slide"
       >
         ▶
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 ">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2  hidden sm:flex">
         {images.map((_, i) => (
           <button
             key={i}

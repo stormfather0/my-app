@@ -89,6 +89,9 @@ export default function Products() {
   const [showThumbnails, setShowThumbnails] = useState(true);
   const [showNotificationMenu, setShowNotificationMenu] = useState(false);
   const [cartReady, setCartReady] = useState(false);
+
+     {/* // Array of best seller IDs */}
+const bestSellerIds = [1, 3, 5, 7, 9, 22, 29, 27, 32]; 
   
   useEffect(() => {
     if (cartItems.length > 0) {
@@ -196,12 +199,45 @@ export default function Products() {
             </div>
             
 
+         
+
+
+
+
+
+
+
+
             <Link to="#">
               <div className="flex justify-end mr-3 text-sm text-blue-900 mb-2">
                 <p>All sales</p>
                 <span> → </span>
               </div>
             </Link>
+
+
+            <div className="flex justify-start mb-2  ">
+              <p className="text-xl font-bold text-gray-600 pl-1">
+                Bestsellers
+              </p>
+            </div>
+
+            <div className="flex gap-4 overflow-x-scroll pb-2 mb-10 relative z-10 scrollbar-always-visible">
+  {bestSellerIds.map((id) => {
+    const product = pageProducts.find((p) => p.id === id);
+    if (!product) return null;
+
+    return (
+      <div key={product.id} className="flex-shrink-0 w-40 bg-white rounded shadow cursor-pointer overflow-hidden">
+        <img src={product.thumbnail} alt={product.title} className="object-cover w-full h-40" />
+        <div className="p-2 flex flex-col items-start">
+          <h3 className="text-sm font-semibold truncate">{product.title}</h3>
+          <p className="text-sm font-bold text-green-600 mt-1">${product.price}</p>
+        </div>
+      </div>
+    );
+  })}
+</div>
 
             <div className="flex justify-start mb-2  ">
               <p className="text-xl font-bold text-gray-600 pl-1">

@@ -9,4 +9,60 @@
 /* background-color: #f3f4f6; */
 }
 
+/* Ensure the scrollable container doesn't overflow the parent */
+.overflow-x-auto {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+}
 
+/* Hide scrollbar for a cleaner look (optional) */
+.overflow-x-auto::-webkit-scrollbar {
+  height: 6px; /* Thin scrollbar for visibility */
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Firefox */
+.overflow-x-auto {
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+/* Ensure the parent container doesn't stretch the page */
+.flex-1 {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+
+/* */
+
+
+/* Add to your CSS or global stylesheet */
+.scrollbar-always-visible {
+  scrollbar-width: thin;       /* Firefox */
+  scrollbar-color: #535353 #ccc; /* Firefox */
+}
+
+.scrollbar-always-visible::-webkit-scrollbar {
+  height: 12px;               /* Chrome/Safari */
+}
+
+.scrollbar-always-visible::-webkit-scrollbar-track {
+  background: #ccc;
+  border-radius: 6px;
+}
+
+.scrollbar-always-visible::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  border: 3px solid #ccc;
+}
