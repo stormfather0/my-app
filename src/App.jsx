@@ -6,12 +6,10 @@ import Checkout from './pages/Checkout';
 import ProductDetails from "./ProductDetails.jsx";
 import { Routes, Route } from 'react-router-dom';
 import Account from './Account';
-import ScrollToTop from "./ScrollToTop";
 
 function App() {
   return (
     <>
-        <ScrollToTop />
       <Header />
       <div className=" min-h-screen">
         <Routes>

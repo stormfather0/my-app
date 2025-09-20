@@ -203,6 +203,12 @@ export default function Products() {
               </div>
             </Link>
 
+            <div className="flex justify-start mb-2  ">
+              <p className="text-xl font-bold text-gray-600 pl-1">
+                Best Offers
+              </p>
+            </div>
+
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 p-2 sm:p-0 flex-1">
               {pageProducts.map((product) => {
                 const isFavourited = favourites.includes(product.id);

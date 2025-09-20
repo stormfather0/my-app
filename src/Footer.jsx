@@ -6,7 +6,7 @@ export default function Footer() {
       <footer className="bg-gray-900 text-gray-300 ">
      <div className="flex flex-col md:flex-row items-center justify-center bg-gray-100 mx-auto p-10 mt-20 space-y-4 md:space-y-0 md:space-x-6 ">
   <p className="text-center md:text-left text-gray-700 flex-1 text-sm md:text-base max-w-4xl ">
-    Subscribe and be the first to receive information about the start of sales, discounts, promotions, bonuses and welcome surprises at Wabsite.com!
+    Subscribe and be the first to receive information about the start of sales, discounts, promotions, bonuses and welcome surprises at Website.com!
   </p>
   <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded transition-colors duration-300">
     Subscribe

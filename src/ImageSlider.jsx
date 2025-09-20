@@ -7,7 +7,7 @@ const images = [
   "/my-app/slider/3.webp",
   "/my-app/slider/4.webp",
   "/my-app/slider/5.webp",
-  "/my-app/slidesr/6.webp",
+  "/my-app/slides/6.webp",
 ];
 
 export default function ImageSlider() {

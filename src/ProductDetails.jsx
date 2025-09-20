@@ -48,6 +48,9 @@ const scrollToReviews = () => scrollToRefWithOffset(reviewsRef);
   const [isStickyActive, setIsStickyActive] = useState(true);
 
 
+
+
+
 //Popup window that appears on scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -144,6 +147,9 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
     // Check if user is eligible for free delivery 
     const isFreeDelivery = product?.price > 50;
 
+
+    //  Buy on credit Popup
+    const [buyOnCredit, setBuyOnCredit] = useState(false);
 
   // Toggle favourite
   const toggleFavourite = () => {
@@ -278,7 +284,7 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
   {/* Right: Leave a review + barcode */}
   <div className="flex flex-col items-start justify-end p-2 pr-4">
   
-    <p  onClick={scrollToReviews} className="text-sm text-blue-400 ">Leave a review</p>
+    <p  onClick={scrollToReviews} className="text-sm text-blue-400 cursor-pointer">Leave a review</p>
 
     <p className="text-sm text-gray-500 opacity-75">barcode: {product.meta.barcode}</p>
   </div>
@@ -348,12 +354,85 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
       </button>
 
       <button
+onClick={() => setBuyOnCredit(prev => !prev)}
         type="button"
         className="inline-flex items-center gap-2 border border-green-600 h-9 hover:bg-gray-100 text-green-600 px-5 py-2 rounded-lg shadow-md cursor-pointer"
       >
         Buy on credit
       </button>
     </div>
+
+  
+    {buyOnCredit && (
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-150 px-4">
+    <div
+      className="
+        bg-white rounded-lg shadow-lg p-6 relative
+        w-full max-w-md sm:max-w-lg lg:max-w-xl
+        overflow-auto
+      "
+    >
+      {/* Close button */}
+      <button
+        onClick={() => setBuyOnCredit(false)}
+        className="absolute top-3 right-3 text-white bg-green-600  w-8 h-8 flex items-center rounded-md justify-center hover:bg-green-700 text-lg cursor-pointer"
+      >
+        ✕
+      </button>
+
+      {/* Header */}
+      <h2 className="text-xl sm:text-2xl font-semibold text-green-600 mb-4">
+        Buy on Credit
+      </h2>
+
+      {/* Price */}
+      <p className="text-gray-900 text-3xl font-bold mb-4">
+        ${product.price}
+      </p>
+
+      {/* Credit Terms Section */}
+      <div className="border-t border-b border-gray-200 py-4 mb-4">
+        <h3 className="text-lg font-medium text-gray-700 mb-2">Credit Terms:</h3>
+        <ul className="list-disc list-inside text-gray-600 space-y-1 text-sm sm:text-base">
+          <li>Minimum down payment: 20%</li>
+          <li>Interest rate: 5% per month</li>
+          <li>Repayment period: 6 months</li>
+          <li>Monthly installment is automatically calculated</li>
+        </ul>
+      </div>
+
+      {/* Example Installments */}
+      <div className="bg-gray-50 p-4 rounded-md mb-4">
+        <h4 className="text-gray-700 font-medium mb-2">Installment Plan:</h4>
+        <div className="flex justify-between text-gray-800 text-sm sm:text-base mb-1">
+          <span>Down Payment (20%):</span>
+          <span>${(product.price * 0.2).toFixed(2)}</span>
+        </div>
+        <div className="flex justify-between text-gray-800 text-sm sm:text-base mb-1">
+          <span>Remaining Amount:</span>
+          <span>${(product.price * 0.8).toFixed(2)}</span>
+        </div>
+        <div className="flex justify-between text-gray-800 text-sm sm:text-base">
+          <span>Monthly Installment (6 months):</span>
+          <span>${((product.price * 0.8) / 6).toFixed(2)}</span>
+        </div>
+      </div>
+
+      {/* Confirm Button */}
+      <div className="flex justify-end">
+        <button
+          onClick={() => {
+             setBuyOnCredit(false);
+             addToCart(product)}}
+
+          className="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded transition-colors duration-300"
+        >
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+)}
 
     {/* Favourite toggle button */}
     <button
@@ -381,18 +460,19 @@ const saleEndDateFormated = saleEndDate.toLocaleDateString('en-US', {
   <div className="flex flex-col gap-2 w-full xl:hidden">
     <button
       type="button"
-      className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg shadow-md"
+      className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg shadow-md cursor-pointer"
       onClick={() => addToCart(product)}
     >
       <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
         
       </svg>
-      <span className="text-sm">Add to Cart</span>
+      <span className="text-sm ">Add to Cart</span>
     </button>
 
     <button
+      onClick={() => setBuyOnCredit(prev => !prev)}
       type="button"
-      className="w-full flex items-center justify-center gap-2 border border-green-600 h-9 hover:bg-gray-100 text-green-600 px-5 py-2 rounded-lg shadow-md"
+      className="w-full flex items-center justify-center gap-2 border border-green-600 h-9 hover:bg-gray-100 text-green-600 px-5 py-2 rounded-lg shadow-md cursor-pointer"
     >
       Buy on credit
     </button>
