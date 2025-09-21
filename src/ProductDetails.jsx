@@ -2,13 +2,30 @@ import React, { useEffect, useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import LoadingSpinner from "./LoadingSpinner";
 import { useCart } from "./CartContext";
+import PickupTimer from "./PickupTimer";
+
 
 const FAV_STORAGE_KEY = "myAppFavourites";
 
 const additionalOptions = [
-  { id: "guarantee-1y", label: "Additional guarantee for 1 year", price: 50, img: "/my-app/additional-services-1.png.webp" },
-  { id: "service-breakdowns", label: "Service for unexpected breakdowns", price: 80, img: "/my-app/additional-services-2.png.webp" },
-  { id: "guarantee-2y", label: "NEW! Full guarantee for 2 years", price: 100, img: "/my-app/additional-services-3.png.webp" },
+  {
+    id: "guarantee-1y",
+    label: "Additional guarantee for 1 year",
+    price: 50,
+    img: "/my-app/additional-services-1.png.webp",
+  },
+  {
+    id: "service-breakdowns",
+    label: "Service for unexpected breakdowns",
+    price: 80,
+    img: "/my-app/additional-services-2.png.webp",
+  },
+  {
+    id: "guarantee-2y",
+    label: "NEW! Full guarantee for 2 years",
+    price: 100,
+    img: "/my-app/additional-services-3.png.webp",
+  },
 ];
 
 export default function ProductDetails() {
@@ -30,7 +47,13 @@ export default function ProductDetails() {
   const [leaveReview, setLeaveReview] = useState(false);
   const [votes, setVotes] = useState({});
   const [activeTab, setActiveTab] = useState("reviews");
-  const [ratingCount, setRatingCount] = useState({ 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 });
+  const [ratingCount, setRatingCount] = useState({
+    5: 0,
+    4: 0,
+    3: 0,
+    2: 0,
+    1: 0,
+  });
   const [favourites, setFavourites] = useState(() => {
     try {
       const saved = localStorage.getItem(FAV_STORAGE_KEY);
@@ -73,7 +96,11 @@ export default function ProductDetails() {
   // Fetch similar products
   useEffect(() => {
     if (!product?.category) return;
-    fetch(`https://dummyjson.com/products/category/${encodeURIComponent(product.category)}`)
+    fetch(
+      `https://dummyjson.com/products/category/${encodeURIComponent(
+        product.category
+      )}`
+    )
       .then((res) => res.json())
       .then((data) => {
         const filtered = data.products.filter((p) => p.id !== product.id);
@@ -118,13 +145,14 @@ export default function ProductDetails() {
   // Update addToCart to include selected options
   const handleAddToCart = () => {
     if (!product) return;
-    addToCart(product, selectedOptions); 
+    addToCart(product, selectedOptions);
   };
 
   // Scroll to sections
   const scrollToRefWithOffset = (ref, offset = 80) => {
     if (!ref?.current) return;
-    const top = ref.current.getBoundingClientRect().top + window.scrollY - offset;
+    const top =
+      ref.current.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top, behavior: "smooth" });
   };
 
@@ -238,7 +266,9 @@ export default function ProductDetails() {
           {/* Product Title and Reviews */}
           <div className="rounded-lg bg-white mb-1 flex justify-between">
             <div className="flex flex-col items-start gap-1 p-3">
-              <p className="text-2xl font-extrabold text-gray-900">{product.title}</p>
+              <p className="text-2xl font-extrabold text-gray-900">
+                {product.title}
+              </p>
               <div className="flex items-center gap-2">
                 <StarRating rating={product.rating} />
                 <div
@@ -250,10 +280,15 @@ export default function ProductDetails() {
               </div>
             </div>
             <div className="flex flex-col items-start justify-end p-2 pr-4">
-              <p onClick={scrollToReviews} className="text-sm text-blue-400 cursor-pointer">
+              <p
+                onClick={scrollToReviews}
+                className="text-sm text-blue-400 cursor-pointer"
+              >
                 Leave a review
               </p>
-              <p className="text-sm text-gray-500 opacity-75">barcode: {product.meta.barcode}</p>
+              <p className="text-sm text-gray-500 opacity-75">
+                barcode: {product.meta.barcode}
+              </p>
             </div>
           </div>
 
@@ -264,8 +299,12 @@ export default function ProductDetails() {
                 <div className="flex items-center gap-2">
                   <img className="w-13 h-13" src="/my-app/sale.png" alt="" />
                   <div>
-                    <p className="text-sm font-bold">Big Sale — Up to 50% Off! Limited Time Only!</p>
-                    <p className="text-sm text-gray-500">Only until {saleEndDateFormated}</p>
+                    <p className="text-sm font-bold">
+                      Big Sale — Up to 50% Off! Limited Time Only!
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      Only until {saleEndDateFormated}
+                    </p>
                   </div>
                 </div>
                 <img className="w-4 h-4" src="/my-app/right-arrow.png" alt="" />
@@ -273,80 +312,124 @@ export default function ProductDetails() {
             </div>
           </Link>
 
-          {/* Seller Info */}
-          <div className="flex px-4 py-0 rounded-t-lg bg-white gap-3 items-center border-b border-gray-200">
-            <p className="text-base text-gray-500">Seller:</p>
-            <img src="/my-app/seller.svg" alt="" className="w-35 h-10" />
-          </div>
+   {/* Unified Card */}
+<div className="rounded-lg bg-white mb-2 shadow-sm overflow-hidden">
+  {/* Seller Info */}
+  <div className="flex px-4 py-2 gap-3 items-center border-b border-gray-200">
+    <p className="text-base text-gray-500">Seller:</p>
+    <img src="/my-app/seller.svg" alt="" className="w-35 h-10" />
+  </div>
 
-          {/* Price and Buttons */}
-          <div className="flex flex-col xl:flex-row px-4 py-1 rounded-b-lg bg-white gap-4 xl:items-center xl:justify-between">
-            <div className="flex justify-between xl:justify-start items-center w-full gap-5">
-              <div className="flex flex-col text-base gap-0">
-                <p
-                  className={
-                    product.availabilityStatus === "In Stock"
-                      ? "text-green-600"
-                      : "text-red-500"
-                  }
-                >
-                  {product.availabilityStatus}
-                </p>
-                <p className="font-medium text-gray-900 text-2xl">${product.price}</p>
-              </div>
-              <div className="hidden xl:flex gap-3">
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg shadow-md"
-                  onClick={handleAddToCart} // Use updated handler
-                >
-                  <span className="text-sm px-5 cursor-pointer">Add to Cart</span>
-                </button>
-                <button
-                  onClick={() => setBuyOnCredit((prev) => !prev)}
-                  type="button"
-                  className="inline-flex items-center gap-2 border border-green-600 h-9 hover:bg-gray-100 text-green-600 px-5 py-2 rounded-lg shadow-md cursor-pointer"
-                >
-                  Buy on credit
-                </button>
-              </div>
-              <button
-                onClick={toggleFavourite}
-                aria-label={isFavourited ? "Remove from favourites" : "Add to favourites"}
-                title={isFavourited ? "Remove from favourites" : "Add to favourites"}
-                className="w-8 h-8 text-red-500 hover:text-red-700 transition cursor-pointer"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill={isFavourited ? "orange" : "none"}
-                  stroke="orange"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-8 h-8"
-                >
-                  <path d="M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z" />
-                </svg>
-              </button>
-            </div>
-            <div className="flex flex-col gap-2 w-full xl:hidden">
-              <button
-                type="button"
-                className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg shadow-md cursor-pointer"
-                onClick={handleAddToCart} // Use updated handler
-              >
-                <span className="text-sm">Add to Cart</span>
-              </button>
-              <button
-                onClick={() => setBuyOnCredit((prev) => !prev)}
-                type="button"
-                className="w-full flex items-center justify-center gap-2 border border-green-600 h-9 hover:bg-gray-100 text-green-600 px-5 py-2 rounded-lg shadow-md cursor-pointer"
-              >
-                Buy on credit
-              </button>
-            </div>
-          </div>
+  {/* Price and Buttons */}
+  <div className="flex flex-col xl:flex-row px-4 py-3 gap-4 xl:items-center xl:justify-between border-b border-gray-200">
+    <div className="flex justify-between xl:justify-start items-center w-full gap-5">
+      <div className="flex flex-col text-base gap-0">
+        <p
+          className={
+            product.availabilityStatus === "In Stock"
+              ? "text-green-600"
+              : "text-red-500"
+          }
+        >
+          {product.availabilityStatus}
+        </p>
+        <p className="font-medium text-gray-900 text-2xl">
+          ${product.price}
+        </p>
+      </div>
+
+      <div className="hidden xl:flex gap-3">
+        <button
+          type="button"
+          className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg shadow-md"
+          onClick={handleAddToCart}
+        >
+          <span className="text-sm px-5 cursor-pointer">
+            Add to Cart
+          </span>
+        </button>
+        <button
+          onClick={() => setBuyOnCredit((prev) => !prev)}
+          type="button"
+          className="inline-flex items-center gap-2 border border-green-600 h-9 hover:bg-gray-100 text-green-600 px-5 py-2 rounded-lg shadow-md cursor-pointer"
+        >
+          Buy on credit
+        </button>
+      </div>
+
+      {/* Favourite */}
+      <button
+        onClick={toggleFavourite}
+        aria-label={isFavourited ? "Remove from favourites" : "Add to favourites"}
+        title={isFavourited ? "Remove from favourites" : "Add to favourites"}
+        className="w-8 h-8 text-red-500 hover:text-red-700 transition cursor-pointer"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill={isFavourited ? "orange" : "none"}
+          stroke="orange"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-8 h-8"
+        >
+          <path d="M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z" />
+        </svg>
+      </button>
+    </div>
+
+    {/* Mobile buttons */}
+    <div className="flex flex-col gap-2 w-full xl:hidden">
+      <button
+        type="button"
+        className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg shadow-md cursor-pointer"
+        onClick={handleAddToCart}
+      >
+        <span className="text-sm">Add to Cart</span>
+      </button>
+      <button
+        onClick={() => setBuyOnCredit((prev) => !prev)}
+        type="button"
+        className="w-full flex items-center justify-center gap-2 border border-green-600 h-9 hover:bg-gray-100 text-green-600 px-5 py-2 rounded-lg shadow-md cursor-pointer"
+      >
+        Buy on credit
+      </button>
+    </div>
+  </div>
+
+  {/* Bonus + Discount */}
+<div className="p-2 bg-white rounded-lg shadow-sm">
+  {/* Bonus points with info tooltip */}
+  <div className="flex items-center gap-2 mb-2 border-b border-gray-200 pb-2">
+    <img src="/my-app/bonus.svg" alt="Bonus Icon" className="w-8 h-8" />
+    
+    <p className="text-sm text-gray-800">
+      <span className="font-bold">+ {(product.price / 10).toFixed(2)}</span> bonus points
+    </p>
+
+    {/* Tooltip */}
+    <div className="relative inline-block group">
+      <img
+        src="/my-app/info.svg"
+        alt="Info"
+        className="w-4 h-4 cursor-pointer"
+      />
+      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-64 bg-gray-800 text-white text-xs rounded-md px-3 py-2 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+        Bonuses are calculated based on the product price and can be used for future purchases.
+      </div>
+    </div>
+  </div>
+
+  {/* Discount image */}
+  <img
+    src="/my-app/discount.jpg"
+    alt="Discount"
+    className="rounded-md w-full cursor-pointer"
+  />
+</div>
+</div>
+      
 
           {/* Buy on Credit Popup */}
           {buyOnCredit && (
@@ -361,9 +444,13 @@ export default function ProductDetails() {
                 <h2 className="text-xl sm:text-2xl font-semibold text-green-600 mb-4">
                   Buy on Credit
                 </h2>
-                <p className="text-gray-900 text-3xl font-bold mb-4">${product.price}</p>
+                <p className="text-gray-900 text-3xl font-bold mb-4">
+                  ${product.price}
+                </p>
                 <div className="border-t border-b border-gray-200 py-4 mb-4">
-                  <h3 className="text-lg font-medium text-gray-700 mb-2">Credit Terms:</h3>
+                  <h3 className="text-lg font-medium text-gray-700 mb-2">
+                    Credit Terms:
+                  </h3>
                   <ul className="list-disc list-inside text-gray-600 space-y-1 text-sm sm:text-base">
                     <li>Minimum down payment: 20%</li>
                     <li>Interest rate: 5% per month</li>
@@ -372,7 +459,9 @@ export default function ProductDetails() {
                   </ul>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-md mb-4">
-                  <h4 className="text-gray-700 font-medium mb-2">Installment Plan:</h4>
+                  <h4 className="text-gray-700 font-medium mb-2">
+                    Installment Plan:
+                  </h4>
                   <div className="flex justify-between text-gray-800 text-sm sm:text-base mb-1">
                     <span>Down Payment (20%):</span>
                     <span>${(product.price * 0.2).toFixed(2)}</span>
@@ -402,12 +491,12 @@ export default function ProductDetails() {
           )}
 
           {/* Payment Options */}
-          <div className="flex items-start p-4 rounded-lg bg-white mb-1 mt-2 gap-2">
+          <div className="flex items-start p-4 rounded-lg bg-white mb-1 gap-2">
             <img src="/my-app/wallet.svg" alt="" className="w-7 h-7" />
             <p className="text-gray-600 text-sm">
-              Payment: By card online, Payment upon receipt of goods, Payment by card in the branch,
-              Apple Pay, Google Pay, Cashless for legal entities, Cashless for individuals, Visa,
-              Mastercard
+              Payment: By card online, Payment upon receipt of goods, Payment by
+              card in the branch, Apple Pay, Google Pay, Cashless for legal
+              entities, Cashless for individuals, Visa, Mastercard
             </p>
           </div>
 
@@ -415,16 +504,35 @@ export default function ProductDetails() {
           <div className="flex items-center p-4 rounded-lg bg-white mb-1 mt-1 gap-2">
             <img src="/my-app/security.svg" alt="" className="w-7 h-7" />
             <p className="text-gray-600 text-sm">
-              Warranty information: <strong>{product.warrantyInformation}</strong>
+              Warranty information:{" "}
+              <strong>{product.warrantyInformation}</strong>
             </p>
           </div>
 
+{/* Shipping Information */}
+<div>
+      <PickupTimer />
+    </div>
+
+
+
+
+
+
+
           {/* Delivery Options */}
           <div className="p-4 rounded-lg bg-white mb-2 mt-2">
-            <div className="flex items-center gap-2 mb-4">
-              <img src="/my-app/delivery.svg" alt="Delivery Icon" className="w-6 h-6" />
-              <p className="text-gray-700 text-sm font-medium">Delivery Options</p>
+            <div className="flex items-center gap-2 mb-4 border-b border-gray-200 pb-3 -mx-4 px-4">
+              <img
+                src="/my-app/delivery.svg"
+                alt="Delivery Icon"
+                className="w-6 h-6"
+              />
+              <p className="text-gray-700 text-sm font-medium">
+                Delivery Options
+              </p>
             </div>
+
             <div className="flex flex-col gap-3 w-full">
               {[
                 { img: "/my-app/ups-1.png", label: "UPS", price: "Free" },
@@ -434,11 +542,15 @@ export default function ProductDetails() {
               ].map(({ img, label, price }, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between border-b border-gray-200 pb-2"
+                  className="flex items-center justify-between pb-2"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-12 flex justify-center">
-                      <img className="h-6 object-contain" src={img} alt={label} />
+                      <img
+                        className="h-6 object-contain"
+                        src={img}
+                        alt={label}
+                      />
                     </div>
                     <p className="text-green-600 text-sm">
                       Receive your order on <b>{formatted}</b>
@@ -458,9 +570,12 @@ export default function ProductDetails() {
 
           {/* Additional Services (Using ProductOptions Component) */}
           <div className="p-4 rounded-lg bg-white mt-2">
-            <div className="flex gap-2 items-center mb-4">
+          <div className="flex items-center gap-2 mb-4 border-b border-gray-200 pb-3 -mx-4 px-4">
+
               <img className="w-6 h-6" src="/my-app/service.svg" alt="" />
-              <p className="text-gray-700 text-sm font-medium">Additional Services</p>
+              <p className="text-gray-700 text-sm font-medium">
+                Additional Services
+              </p>
             </div>
             <ProductOptions
               productId={product.id}
@@ -470,12 +585,12 @@ export default function ProductDetails() {
           </div>
 
           {/* Similar Items Link */}
-          <a href="#">
+         <Link to="/#">
             <div className="flex items-center justify-center p-4 rounded-lg bg-white mb-1 mt-1 gap-2">
               <p className="text-gray-600 text-sm">Similar items</p>
               <img className="w-4 h-4" src="/my-app/right-arrow.png" alt="" />
             </div>
-          </a>
+            </Link>
         </div>
       </div>
 
@@ -483,14 +598,22 @@ export default function ProductDetails() {
       {showBottomBar && (
         <div className="fixed flex justify-between items-center gap-4 px-5 bottom-0 left-0 w-full bg-white text-black text-center z-50 shadow-lg">
           <div className="flex items-center gap-2">
-            <img className="w-16 h-16 object-contain" src={product.thumbnail} alt={product.title} />
+            <img
+              className="w-16 h-16 object-contain"
+              src={product.thumbnail}
+              alt={product.title}
+            />
             <p>{product.title}</p>
           </div>
           <div className="flex items-center gap-5">
             <button
               onClick={toggleFavourite}
-              aria-label={isFavourited ? "Remove from favourites" : "Add to favourites"}
-              title={isFavourited ? "Remove from favourites" : "Add to favourites"}
+              aria-label={
+                isFavourited ? "Remove from favourites" : "Add to favourites"
+              }
+              title={
+                isFavourited ? "Remove from favourites" : "Add to favourites"
+              }
               className="w-8 h-8 text-red-500 hover:text-red-700 transition"
             >
               <svg
@@ -531,7 +654,11 @@ export default function ProductDetails() {
 
       {/* Similar Products */}
       {similarProducts.length > 0 && (
-        <div ref={interestedSectionRef} id="interested" className="p-4 rounded-lg bg-white mb-5 mt-7 pb-10">
+        <div
+          ref={interestedSectionRef}
+          id="interested"
+          className="p-4 rounded-lg bg-white mb-5 mt-7 pb-10"
+        >
           <h2 className="text-lg font-semibold text-gray-800 mb-3 text-left">
             You can also be interested in:
           </h2>
@@ -556,7 +683,11 @@ export default function ProductDetails() {
       )}
 
       {/* Reviews Section */}
-      <div className="p-4 rounded-lg bg-white mb-1 mt-6 min-h-[550px]" ref={reviewsRef} id="reviews">
+      <div
+        className="p-4 rounded-lg bg-white mb-1 mt-6 min-h-[550px]"
+        ref={reviewsRef}
+        id="reviews"
+      >
         <div className="flex flex-col md:flex-row gap-4">
           <div className="md:w-1/3 flex flex-col items-start p-2">
             <h3 className="text-xl font-semibold mb-5">Reviews</h3>
@@ -580,7 +711,11 @@ export default function ProductDetails() {
                       <li key={star} className="flex items-center gap-3 w-full">
                         <div className="flex items-center gap-1 min-w-[30px]">
                           <span className="font-bold">{star}</span>
-                          <img src="/my-app/star.svg" alt={`${star} star`} className="w-4 h-4" />
+                          <img
+                            src="/my-app/star.svg"
+                            alt={`${star} star`}
+                            className="w-4 h-4"
+                          />
                         </div>
                         <div className="w-full h-2 bg-gray-200 rounded">
                           <div
@@ -610,7 +745,9 @@ export default function ProductDetails() {
                       >
                         ✖
                       </button>
-                      <h2 className="text-lg font-semibold mb-4">Leave a Review</h2>
+                      <h2 className="text-lg font-semibold mb-4">
+                        Leave a Review
+                      </h2>
                       <textarea
                         className="w-full border rounded p-2 text-sm"
                         rows="4"
@@ -632,7 +769,9 @@ export default function ProductDetails() {
             <div className="flex justify-start gap-3 mb-4">
               <button
                 className={`border p-2 rounded-lg text-sm cursor-pointer ${
-                  activeTab === "reviews" ? "bg-green-100 text-green-700 border-green-500" : "text-gray-600"
+                  activeTab === "reviews"
+                    ? "bg-green-100 text-green-700 border-green-500"
+                    : "text-gray-600"
                 }`}
                 onClick={() => setActiveTab("reviews")}
               >
@@ -640,7 +779,9 @@ export default function ProductDetails() {
               </button>
               <button
                 className={`border p-2 rounded-lg text-sm cursor-pointer ${
-                  activeTab === "questions" ? "bg-green-100 text-green-700 border-green-500" : "text-gray-600"
+                  activeTab === "questions"
+                    ? "bg-green-100 text-green-700 border-green-500"
+                    : "text-gray-600"
                 }`}
                 onClick={() => setActiveTab("questions")}
               >
@@ -656,8 +797,14 @@ export default function ProductDetails() {
                         <p className="text-gray-700">
                           <strong>{review.reviewerName || "Anonymous"}:</strong>
                         </p>
-                        <img src="/my-app/cart-reviews.svg" alt="review icon" className="w-6 h-6" />
-                        <p className="text-gray-500 text-sm">{formatDate(review.date)}</p>
+                        <img
+                          src="/my-app/cart-reviews.svg"
+                          alt="review icon"
+                          className="w-6 h-6"
+                        />
+                        <p className="text-gray-500 text-sm">
+                          {formatDate(review.date)}
+                        </p>
                       </div>
                       <div className="text-yellow-500 mb-5">
                         <StarRating rating={review.rating} />
@@ -670,7 +817,9 @@ export default function ProductDetails() {
                             src="/my-app/reply-arrow.svg"
                             alt="reply"
                           />
-                          <p className="text-gray-500 text-sm cursor-pointer">Reply</p>
+                          <p className="text-gray-500 text-sm cursor-pointer">
+                            Reply
+                          </p>
                         </div>
                         <div className="flex items-center gap-1">
                           <img
@@ -715,7 +864,10 @@ export default function ProductDetails() {
               <div className="flex flex-col gap-2 border border-gray-300 rounded-2xl pb-2 pt-2 px-4">
                 <div className="flex items-center gap-4">
                   <div>
-                    <img src="/my-app/reviews-question.svg" alt="No questions" />
+                    <img
+                      src="/my-app/reviews-question.svg"
+                      alt="No questions"
+                    />
                   </div>
                   <div className="flex flex-col items-start">
                     <p className="text-gray-500 py-1">No questions yet.</p>
@@ -752,11 +904,11 @@ function ProductOptions({ productId, onSelectOptions, additionalOptions }) {
   };
 
   return (
-    <div className="flex flex-col gap-3 pl-8">
+    <div className="flex flex-col  pl-1">
       {additionalOptions.map((opt) => (
         <label
           key={opt.id}
-          className="flex items-center gap-5 text-sm text-gray-700"
+          className="flex items-center gap-5 text-sm text-gray-700 w-full  py-2"
         >
           <img
             className="w-12 h-12 object-contain"
@@ -769,7 +921,11 @@ function ProductOptions({ productId, onSelectOptions, additionalOptions }) {
             checked={selected.some((o) => o.id === opt.id)}
             onChange={() => toggleOption(opt)}
           />
-          {opt.label} (+${opt.price})
+          {/* label + price */}
+          <div className="flex justify-between w-full">
+            <p>{opt.label}</p>
+            <p className="pr-2 text-sm ">${opt.price}</p>
+          </div>
         </label>
       ))}
     </div>

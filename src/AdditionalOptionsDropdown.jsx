@@ -56,7 +56,7 @@ export default function AdditionalOptionsDropdown({ selectedOptions = [], onChan
                 type="checkbox"
                 checked={localSelected.some((o) => o.id === option.id)}
                 onChange={() => toggleOption(option)}
-                className="accent-green-600"
+                className="accent-green-600 w-4 h-4"
               />
               <img src={option.img} alt={option.label} className="w-6 h-6 object-contain" />
               <div className="flex justify-between w-full">

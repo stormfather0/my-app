@@ -46,7 +46,7 @@ export default function Checkout() {
     <div className="max-w-5xl mx-auto p-4 sm:p-8 bg-gray-50 min-h-screen">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Your Cart</h1>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600 bg-gray-200 p-2 rounded-lg">
           {cartItems.length} {cartItems.length === 1 ? "item" : "items"}
         </p>
       </div>
@@ -56,7 +56,7 @@ export default function Checkout() {
           <p className="text-lg text-gray-600 mb-4">Your cart is empty.</p>
           <Link
             to="/"
-            className="inline-block bg-blue-600 text-white font-medium px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="inline-block bg-green-600 text-white font-medium px-6 py-2 rounded-lg hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             Continue Shopping
           </Link>
@@ -209,7 +209,7 @@ export default function Checkout() {
               Continue Shopping
             </Link>
             <button
-              className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 cursor-pointer"
               onClick={() => alert("Proceeding to checkout (not implemented)")}
             >
               Confirm Order

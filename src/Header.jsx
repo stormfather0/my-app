@@ -31,7 +31,7 @@ useEffect(() => {
 
   // Fetch products
   useEffect(() => {
-    fetch("https://dummyjson.com/products?limit=100")
+    fetch("https://dummyjson.com/products?limit=500")
       .then((res) => res.json())
       .then((data) => setAllProducts(data.products))
       .catch(console.error);
