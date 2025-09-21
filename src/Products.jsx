@@ -7,7 +7,7 @@ import ImageSlider from "./ImageSlider";
 
 const FAV_STORAGE_KEY = "myAppFavourites";
 const PRODUCTS_PER_PAGE = 50;
-const TOTAL_PAGES = 3;
+const TOTAL_PAGES = 4;
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -90,8 +90,8 @@ export default function Products() {
   const [showNotificationMenu, setShowNotificationMenu] = useState(false);
   const [cartReady, setCartReady] = useState(false);
 
-     {/* // Array of best seller IDs */}
-const bestSellerIds = [1, 3, 5, 7, 9, 22, 29, 27, 32]; 
+     //*  Array of best seller IDs */
+const bestSellerIds = [159, 8, 5, 7, 193, 192, 29, 27, 32]; 
   
   useEffect(() => {
     if (cartItems.length > 0) {
@@ -223,20 +223,21 @@ const bestSellerIds = [1, 3, 5, 7, 9, 22, 29, 27, 32];
             </div>
 
             <div className="flex gap-4 overflow-x-scroll pb-2 mb-10 relative z-10 scrollbar-always-visible">
-  {bestSellerIds.map((id) => {
-    const product = pageProducts.find((p) => p.id === id);
-    if (!product) return null;
-
-    return (
-      <div key={product.id} className="flex-shrink-0 w-40 bg-white rounded shadow cursor-pointer overflow-hidden">
+            {bestSellerIds.map((id) => {
+  const product = products.find((p) => p.id === id); // use `products` instead of `pageProducts`
+  if (!product) return null;
+  return (
+    <Link key={product.id} to={`/product/${product.id}`}>
+      <div className="flex-shrink-0 w-40 bg-white rounded shadow cursor-pointer overflow-hidden">
         <img src={product.thumbnail} alt={product.title} className="object-cover w-full h-40" />
         <div className="p-2 flex flex-col items-start">
           <h3 className="text-sm font-semibold truncate">{product.title}</h3>
           <p className="text-sm font-bold text-green-600 mt-1">${product.price}</p>
         </div>
       </div>
-    );
-  })}
+    </Link>
+  );
+})}
 </div>
 
             <div className="flex justify-start mb-2  ">

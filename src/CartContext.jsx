@@ -44,12 +44,7 @@ import React, { createContext, useContext, useState,  useEffect, useRef, } from 
 
 
     // Add product to cart
-    const addToCart = (product) => {
-      if (!product || !product.id) {
-        console.error("❌ Invalid product:", product);
-        return;
-      }
-  
+    const addToCart = (product, selectedOptions = []) => {
       setCartItems((prevItems) => {
         const exists = prevItems.find((item) => item.id === product.id);
         if (exists) {
@@ -59,7 +54,7 @@ import React, { createContext, useContext, useState,  useEffect, useRef, } from 
               : item
           );
         }
-        return [...prevItems, { ...product, quantity: 1 }];
+        return [...prevItems, { ...product, quantity: 1, selectedOptions }];
       });
     };
   
@@ -82,7 +77,7 @@ import React, { createContext, useContext, useState,  useEffect, useRef, } from 
   
     return (
       <CartContext.Provider
-        value={{ cartItems, addToCart, updateQuantity, removeFromCart }}
+        value={{ cartItems, setCartItems, addToCart, updateQuantity, removeFromCart }}
       >
         {children}
       </CartContext.Provider>

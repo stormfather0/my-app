@@ -206,7 +206,7 @@ const Sidebar = ({
           {/* Logo & About */}
           <div className="flex flex-col justify-center my-4 pb-4 gap-1 border-b border-gray-200">
             <p className="text-md text-gray-700 pl-10 ">Social Networks:</p>
-            <div className="flex space-x-6 justify-center pb-2 pt-2">
+            <div className="flex space-x-6 justify-center pb-2 pt-2 items-center">
               {/* Facebook */}
               <a
                 href="https://facebook.com"

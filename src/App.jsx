@@ -6,18 +6,19 @@ import Checkout from './pages/Checkout';
 import ProductDetails from "./ProductDetails.jsx";
 import { Routes, Route } from 'react-router-dom';
 import Account from './Account';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   return (
     <>
       <Header />
-      <div className=" min-h-screen">
+      <ScrollToTop />
+      <div className="min-h-screen">
         <Routes>
           <Route path="/" element={<Products />} />
-          <Route path="/product/:id" element={<ProductDetails />} />  {/* New route */}
+          <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/account" element={<Account />} />
-
         </Routes>
       </div>
       <Footer />
